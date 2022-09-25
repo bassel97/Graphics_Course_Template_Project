@@ -15,6 +15,8 @@ namespace GraphicsCourseEngine
         glm::mat4 CalculateProjectMatrix() const;
         glm::mat4 CalculateViewMatrix() const;
 
+        virtual void UpdateComponent() override;
+
     private:
         Camera(GameObject* holdingGameObject);
 
@@ -22,10 +24,12 @@ namespace GraphicsCourseEngine
         double nearPlane = 0.1;
         double farPlane = 1000.0;
         double fov = 60.0;
-        double aspectRatio = (960.0 / 540.0);
+        double aspectRatio = 1;
 
         bool isOrthographic = false;
 
         template <class ComponentChild> friend class ComponentOptimizer;
+
+        float test = 0.0f;
     };
 }

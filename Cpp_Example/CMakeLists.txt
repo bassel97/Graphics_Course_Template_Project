@@ -31,6 +31,11 @@ set(VendorCode
     vendor/glad/src
     )
 
+# Define the directories in which to search for the included headers
+include_directories(
+    vendor/stb
+    )
+
 add_executable(GraphicsCourseProject source/Main.cpp ${SourceCode} ${VendorCode})
 
 target_include_directories(GraphicsCourseProject

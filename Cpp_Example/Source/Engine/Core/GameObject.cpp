@@ -10,6 +10,7 @@ GameObject::GameObject(std::string name, Scene* sceneToExistIn)
 {
     transform = ComponentOptimizer<Transform>::CreateNewComponentInstance(sceneToExistIn, this);
     this->sceneToExistIn = sceneToExistIn;
+    sceneToExistIn->AddGameObject(this);
 }
 
 void GameObject::AddComponent(Component* component)

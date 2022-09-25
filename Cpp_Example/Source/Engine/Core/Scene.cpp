@@ -28,3 +28,8 @@ void Scene::UpdateScene()
         gameObject->UpdateGameObject();   
     }
 }
+
+void Scene::AddGameObject(GameObject* gameObject)
+{
+    gameObjects.push_back(gameObject);
+}

@@ -6,6 +6,16 @@
 #include "Core/Scene.h"
 #include "Core/System/Rendering/RenderingSystem.h"
 
+int GraphicsCourseEngine::Application::width = 1024;
+int GraphicsCourseEngine::Application::height = 720;
+
+void framebuffer_size_callback(GLFWwindow* window, int width, int height)
+{
+    glViewport(0, 0, width, height);
+    GraphicsCourseEngine::Application::width = width;
+    GraphicsCourseEngine::Application::height = height;
+}
+
 GraphicsCourseEngine::Application::Application()
 {
     // Initialize the library
@@ -13,12 +23,14 @@ GraphicsCourseEngine::Application::Application()
         return;
 
     // Create a windowed mode window and its OpenGL context
-    window = glfwCreateWindow(960, 540, "Course Game", NULL, NULL);
+    window = glfwCreateWindow(width, height, "Course Game", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
         return;
     }
+
+    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
     // Make the window's context current
     glfwMakeContextCurrent(window);
@@ -43,6 +55,8 @@ int GraphicsCourseEngine::Application::Run()
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         // Render here
         glClear(GL_COLOR_BUFFER_BIT);
+
+        mainScene->UpdateScene();
 
         RenderingSystem::RenderScene(mainScene);
 

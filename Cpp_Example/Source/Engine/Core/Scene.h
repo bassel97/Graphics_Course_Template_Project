@@ -10,6 +10,7 @@ namespace GraphicsCourseEngine
     public:
         Scene(std::string sceneName);
         void UpdateScene();
+        void AddGameObject(class GameObject* gameObject);
 
     private:
     

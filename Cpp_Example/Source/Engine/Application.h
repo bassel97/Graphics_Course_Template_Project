@@ -9,10 +9,14 @@ namespace GraphicsCourseEngine
     protected:
         GLFWwindow *window;
 
+
     public:
         Application();
 
         int Run();
         int Quit();
+
+        static int width;
+        static int height;
     };
 }

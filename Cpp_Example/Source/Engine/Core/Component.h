@@ -27,7 +27,7 @@ namespace GraphicsCourseEngine
         GameObject* holdingGameObject = nullptr;
 
     private:
-        bool isActive;
+        bool isActive = true;
         
     };
 }
